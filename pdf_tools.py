@@ -40,15 +40,15 @@ def pdf_splitter(path):
 
 from PyPDF2 import PdfWriter
 
-def split_pdf(): 
+def merge_pdfs(pdf_files_list): 
 	merger = PdfWriter()
-
-	for pdf in ["file1.pdf", "file2.pdf", "file3.pdf"]:
+	for pdf in pdf_files_list:
 		merger.append(pdf)
-
 	merger.write("merged-pdf.pdf")
 	merger.close()
 
 if __name__ == "__main__": 
-	file_name = input("Enter the name of the PDF file to split: ").strip()
-	pdf_splitter(file_name)
+	# file_name = input("Enter the name of the PDF file to split: ").strip()
+	# pdf_splitter(file_name)
+	pdf_files_list = ["Sample PDF File 1.pdf", "Sample PDF File 2.pdf", "Sample PDF File 3.pdf"]
+	merge_pdfs(pdf_files_list)
