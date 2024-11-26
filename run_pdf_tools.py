@@ -48,6 +48,7 @@ if __name__ == "__main__":
 	menu_message = """What would you like to do with your PDF file(s)? 
 	1.) Merge PDF files
 	2.) Split a PDF file
+	3.) Compress a PDF file
 	Please input the option number here: """
 	option = int(input(menu_message).strip())
 	input_folder_name, output_folder_name = create_input_output_folders()
