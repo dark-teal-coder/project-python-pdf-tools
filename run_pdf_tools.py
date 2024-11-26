@@ -35,6 +35,7 @@ def compress_pdf(input_folder_name, output_folder_name, input_file_compress):
 	with open(out_f_full_path, "wb") as outfile:
 		pdf_writer.write(outfile)
 		print(f"Size of the output file: {os.path.getsize(out_f_full_path)} bytes")
+	pdf_writer.close()
 
 def create_input_output_folders(): 
 	## Create input and output folders if they don't yet exist 
