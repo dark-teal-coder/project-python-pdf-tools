@@ -23,13 +23,7 @@ def split_pdf(input_folder_name, output_folder_name, input_file_split):
 			with open(f".//{output_folder_name}//{input_file_split_no_ext} - page{num+1}.pdf", 'wb') as outfile:
 				pdf_writer.write(outfile)
 
-if __name__ == "__main__": 
-	## Print menu function options
-	menu_message = """What would you like to do with your PDF file(s)? 
-	1.) Merge PDF files
-	2.) Split a PDF file
-	Please input the option number here: """
-	option = int(input(menu_message).strip())
+def create_input_output_folders(): 
 	## Create input and output folders if they don't yet exist 
 	input_folder_name = "input"
 	output_folder_name = "output"
@@ -37,6 +31,16 @@ if __name__ == "__main__":
 		os.makedirs(input_folder_name)
 	if not os.path.exists(output_folder_name):
 		os.makedirs(output_folder_name)
+	return input_folder_name, output_folder_name
+
+if __name__ == "__main__": 
+	## Print menu function options
+	menu_message = """What would you like to do with your PDF file(s)? 
+	1.) Merge PDF files
+	2.) Split a PDF file
+	Please input the option number here: """
+	option = int(input(menu_message).strip())
+	input_folder_name, output_folder_name = create_input_output_folders()
 	## Function menu
 	## Function 1: merge PDF files
 	if option == 1: 
