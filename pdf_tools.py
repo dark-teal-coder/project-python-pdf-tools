@@ -10,14 +10,18 @@ def merge_pdfs(pdf_files_list, output_folder_name):
 	merger.write(f".//{output_folder_name}//Merged PDF.pdf")
 	merger.close()
 
-def split_pdf(input_folder_name, output_folder_name): 
-	with open(f".//{input_folder_name}//Sample PDF File 4.pdf", 'rb') as infile:
-		reader = PdfReader(infile)
-		writer = PdfWriter()
-		# writer.addPage(reader.getPage(0))
-		writer.add_page(reader.pages[0])
-		with open(f".//{output_folder_name}//Split PDF.pdf", 'wb') as outfile:
-			writer.write(outfile)
+def split_pdf(input_folder_name, output_folder_name, input_file_split): 
+	with open(f".//{input_folder_name}//{input_file_split}", 'rb') as infile:
+		pdf_reader = PdfReader(infile)
+		## Get the total number of pages in the PDF file
+		page_total = len(pdf_reader.pages)
+		## Remove file extension from file name
+		input_file_split_no_ext = os.path.splitext(input_file_split)[0]
+		for num in range(page_total):
+			pdf_writer = PdfWriter()
+			pdf_writer.add_page(pdf_reader.pages[num])
+			with open(f".//{output_folder_name}//{input_file_split_no_ext} - page{num+1}.pdf", 'wb') as outfile:
+				pdf_writer.write(outfile)
 
 if __name__ == "__main__": 
 	## Print menu function options
@@ -34,10 +38,18 @@ if __name__ == "__main__":
 	if not os.path.exists(output_folder_name):
 		os.makedirs(output_folder_name)
 	## Function menu
+	## Function 1: merge PDF files
 	if option == 1: 
+		print("Please put all the PDF files in the \"input\" folder.")
 		## Get the names of the PDF files to be merged and add the folder name to the front of them  
 		input_files_list = os.listdir(f".//{input_folder_name}")
 		input_files_list_dir_name = [f".//{input_folder_name}//{input_f}" for input_f in input_files_list]
 		merge_pdfs(input_files_list_dir_name, output_folder_name)
+	## Function 2: split PDF file
 	elif option == 2:
-		split_pdf(input_folder_name, output_folder_name)
+		input_file_split = input("Please enter the PDF file name to split with its extension (e.g., \"file-name.pdf\"): ").strip()
+		if not os.path.isfile(f".//{input_folder_name}//{input_file_split}"):
+			## Check if the input file exists.
+			print(f"The file \"{input_file_split}\" does not exist in the \"input\" folder.")
+		else: 
+			split_pdf(input_folder_name, output_folder_name, input_file_split)
