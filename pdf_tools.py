@@ -50,5 +50,7 @@ def merge_pdfs(pdf_files_list):
 if __name__ == "__main__": 
 	# file_name = input("Enter the name of the PDF file to split: ").strip()
 	# pdf_splitter(file_name)
-	pdf_files_list = ["Sample PDF File 1.pdf", "Sample PDF File 2.pdf", "Sample PDF File 3.pdf"]
-	merge_pdfs(pdf_files_list)
+	input_folder_name = "input"
+	input_files_list = os.listdir(f".//{input_folder_name}")
+	input_files_list_dir_name = [f".//{input_folder_name}//{input_f}" for input_f in input_files_list]
+	merge_pdfs(input_files_list_dir_name)
