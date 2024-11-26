@@ -78,4 +78,4 @@ if __name__ == "__main__":
 			## Check if the input file exists in "input" folder
 			raise Exception(f"The file \"{input_file_compress}\" does not exist in the \"input\" folder.")
 		else: 
-			compress_pdf(input_folder_name, input_file_compress)
+			compress_pdf(input_folder_name, output_folder_name, input_file_compress)
