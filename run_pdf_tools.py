@@ -23,8 +23,9 @@ def split_pdf(input_folder_name, output_folder_name, input_file_split):
 			with open(f".//{output_folder_name}//{input_file_split_no_ext} - page{num+1}.pdf", 'wb') as outfile:
 				pdf_writer.write(outfile)
 
-def compress_pdf(): 
-	pdf_reader = PdfReader("imm5710e.pdf")
+def compress_pdf(input_folder_name): 
+	in_f_full_path = f".//{input_folder_name}//imm5710e.pdf"
+	pdf_reader = PdfReader(in_f_full_path)
 	pdf_writer = PdfWriter()
 	for page in pdf_reader.pages:
 		page.compress_content_streams() # CPU intensive!
