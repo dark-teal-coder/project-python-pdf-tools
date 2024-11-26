@@ -23,6 +23,15 @@ def split_pdf(input_folder_name, output_folder_name, input_file_split):
 			with open(f".//{output_folder_name}//{input_file_split_no_ext} - page{num+1}.pdf", 'wb') as outfile:
 				pdf_writer.write(outfile)
 
+def compress_pdf(): 
+	pdf_reader = PdfReader("imm5710e.pdf")
+	pdf_writer = PdfWriter()
+	for page in pdf_reader.pages:
+		page.compress_content_streams() # CPU intensive!
+		pdf_writer.add_page(page)
+	with open("Compressed PDF.pdf", "wb") as outfile:
+		pdf_writer.write(outfile)
+
 def create_input_output_folders(): 
 	## Create input and output folders if they don't yet exist 
 	input_folder_name = "input"
@@ -60,3 +69,5 @@ if __name__ == "__main__":
 			raise Exception(f"The file \"{input_file_split}\" does not exist in the \"input\" folder.")
 		else: 
 			split_pdf(input_folder_name, output_folder_name, input_file_split)
+	## Function 3: compress PDF file
+	
