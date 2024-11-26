@@ -22,6 +22,7 @@ def split_pdf(input_folder_name, output_folder_name, input_file_split):
 			pdf_writer.add_page(pdf_reader.pages[num])
 			with open(f".//{output_folder_name}//{input_file_split_no_ext} - page{num+1}.pdf", 'wb') as outfile:
 				pdf_writer.write(outfile)
+	pdf_writer.close()
 
 def compress_pdf(input_folder_name, output_folder_name, input_file_compress): 
 	in_f_full_path = f".//{input_folder_name}//{input_file_compress}"
