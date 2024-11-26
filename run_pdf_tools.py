@@ -23,8 +23,8 @@ def split_pdf(input_folder_name, output_folder_name, input_file_split):
 			with open(f".//{output_folder_name}//{input_file_split_no_ext} - page{num+1}.pdf", 'wb') as outfile:
 				pdf_writer.write(outfile)
 
-def compress_pdf(input_folder_name): 
-	in_f_full_path = f".//{input_folder_name}//imm5710e.pdf"
+def compress_pdf(input_folder_name, input_file_compress): 
+	in_f_full_path = f".//{input_folder_name}//{input_file_compress}"
 	pdf_reader = PdfReader(in_f_full_path)
 	pdf_writer = PdfWriter()
 	for page in pdf_reader.pages:
@@ -71,4 +71,10 @@ if __name__ == "__main__":
 		else: 
 			split_pdf(input_folder_name, output_folder_name, input_file_split)
 	## Function 3: compress PDF file
-	
+	elif option == 3: 
+		input_file_compress = input("Please enter the PDF file name to compress with its extension (e.g., \"file-name.pdf\"): ").strip()
+		if not os.path.isfile(f".//{input_folder_name}//{input_file_compress}"):
+			## Check if the input file exists in "input" folder
+			raise Exception(f"The file \"{input_file_compress}\" does not exist in the \"input\" folder.")
+		else: 
+			compress_pdf(input_folder_name, input_file_compress)
