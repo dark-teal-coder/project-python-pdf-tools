@@ -1,4 +1,11 @@
+<!-- README file for projects-->
+
 # Python PDF Tools
+
+## Metadata
+
+- <ins>Project Owner</ins>: [@dark-teal-coder](github.com/dark-teal-coder)
+- <ins>First Published Date</ins>: 2024-11-25
 
 ## Credits 
 
