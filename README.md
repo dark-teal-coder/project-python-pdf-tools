@@ -19,6 +19,10 @@
   - [ ] Medium
   - [ ] Big
 
+## Repository Description 
+
+This project uses the Python library PyPDF2 to make PDF tools. When the main program is run, the user will be given the function menu with, currently, 2 options: 1.) merge PDF files, and 2.) split PDF file. The user should put the input file(s) in the "input" folder and can obtain the output file(s) in the "output" folder. 
+
 ## Credits 
 
 ### Contributors 
