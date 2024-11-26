@@ -40,16 +40,19 @@ if __name__ == "__main__":
 	## Function menu
 	## Function 1: merge PDF files
 	if option == 1: 
-		print("Please put all the PDF files in the \"input\" folder.")
-		## Get the names of the PDF files to be merged and add the folder name to the front of them  
-		input_files_list = os.listdir(f".//{input_folder_name}")
-		input_files_list_dir_name = [f".//{input_folder_name}//{input_f}" for input_f in input_files_list]
-		merge_pdfs(input_files_list_dir_name, output_folder_name)
+		if not os.listdir(f".//{input_folder_name}"):
+			## Check if the input files exist in "input" folder
+			raise Exception("Please put all the PDF files in the \"input\" folder.")
+		else: 
+			## Get the names of the PDF files to be merged and add the folder name to the front of them  
+			input_files_list = os.listdir(f".//{input_folder_name}")
+			input_files_list_dir_name = [f".//{input_folder_name}//{input_f}" for input_f in input_files_list]
+			merge_pdfs(input_files_list_dir_name, output_folder_name)
 	## Function 2: split PDF file
 	elif option == 2:
 		input_file_split = input("Please enter the PDF file name to split with its extension (e.g., \"file-name.pdf\"): ").strip()
 		if not os.path.isfile(f".//{input_folder_name}//{input_file_split}"):
-			## Check if the input file exists.
-			print(f"The file \"{input_file_split}\" does not exist in the \"input\" folder.")
+			## Check if the input file exists in "input" folder
+			raise Exception(f"The file \"{input_file_split}\" does not exist in the \"input\" folder.")
 		else: 
 			split_pdf(input_folder_name, output_folder_name, input_file_split)
