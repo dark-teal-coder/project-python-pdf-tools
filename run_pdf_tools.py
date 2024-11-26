@@ -25,13 +25,16 @@ def split_pdf(input_folder_name, output_folder_name, input_file_split):
 
 def compress_pdf(input_folder_name, output_folder_name, input_file_compress): 
 	in_f_full_path = f".//{input_folder_name}//{input_file_compress}"
+	print(f"Size of the input file: {os.path.getsize(in_f_full_path)} bytes")
 	pdf_reader = PdfReader(in_f_full_path)
 	pdf_writer = PdfWriter()
 	for page in pdf_reader.pages:
 		page.compress_content_streams() # CPU intensive!
 		pdf_writer.add_page(page)
-	with open(f".//{output_folder_name}//Compressed PDF.pdf", "wb") as outfile:
+	out_f_full_path = f".//{output_folder_name}//Compressed PDF.pdf"
+	with open(out_f_full_path, "wb") as outfile:
 		pdf_writer.write(outfile)
+		print(f"Size of the output file: {os.path.getsize(out_f_full_path)} bytes")
 
 def create_input_output_folders(): 
 	## Create input and output folders if they don't yet exist 
