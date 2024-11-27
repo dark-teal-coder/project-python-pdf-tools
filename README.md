@@ -27,11 +27,11 @@ This project uses the Python library PyPDF2 to make PDF tools. When the main pro
 
 ### Tools
 
-- Text Editor or Integrated Development Environment (IDE)
-  - You can [download the famous text editor Notepad++](https://notepad-plus-plus.org/downloads). 
-  - Or, you can [download the popular IDE Visual Studio Code (VS Code)](https://code.visualstudio.com/download). 
+- Text Editor and Integrated Development Environment (IDE)
+  - [Download and install Notepad++](https://notepad-plus-plus.org/downloads). 
+  - [Download and install Visual Studio Code (VS Code)](https://code.visualstudio.com/download). 
 - Python 3
-  - You can [install Python 3 from python.org](https://www.python.org/downloads). 
+  - [Download and install Python 3 from python.org](https://www.python.org/downloads). 
 - Python Package Installer/Manager `pip`
   - If you installed Python from [python.org](https://www.python.org), you should already have `pip`. If it is not installed, you can use the command `py -m ensurepip --default-pip` to bootstrap it from the standard library. If you are using Linux, you will have to [install the package manager separately](https://packaging.python.org/en/latest/guides/installing-using-linux-tools/). You can find out more about the `pip` tool [here](https://pip.pypa.io/en/stable/getting-started/). 
 - Command-line interface (CLI) 
