@@ -27,13 +27,16 @@ This project uses the Python library PyPDF2 to make PDF tools. When the main pro
 
 ### Tools
 
-- Text Editor and Integrated Development Environment (IDE)
-  - [Download and install Notepad++](https://notepad-plus-plus.org/downloads). 
-  - [Download and install Visual Studio Code (VS Code)](https://code.visualstudio.com/download). 
 - Python 3
   - [Download and install Python 3 from python.org](https://www.python.org/downloads). 
 - Python Package Installer/Manager `pip`
   - If you installed Python from [python.org](https://www.python.org), you should already have `pip`. If it is not installed, you can use the command `py -m ensurepip --default-pip` to bootstrap it from the standard library. If you are using Linux, you will have to [install the package manager separately](https://packaging.python.org/en/latest/guides/installing-using-linux-tools/). You can find out more about the `pip` tool [here](https://pip.pypa.io/en/stable/getting-started/). 
+- Text Editor and Integrated Development Environment (IDE)
+  - [Download and install the text editor Notepad++](https://notepad-plus-plus.org/downloads). 
+  - [Download and install the IDE Visual Studio Code (VS Code)](https://code.visualstudio.com/download). 
+  - [Install the web-based app Jupyter Notebook with pip](https://jupyter.org/install#jupyter-notebook)
+  - [Install the web-based IDE JupyterLab with pip](https://jupyter.org/install#jupyterlab)
+  - [Install Anaconda to get Jupyter Notebook](https://docs.jupyter.org/en/latest/install/notebook-classic.html#installing-jupyter-using-anaconda-and-conda)
 - Command-line interface (CLI) 
   - You can [install the open-source PowerShell on Windows, Linux and macOS](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell) if you do not have or want to use a pre-installed CLI on your local machine. 
 
